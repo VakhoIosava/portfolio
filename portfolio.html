@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>Portfolio - Vakho Iosava</title>
+</head>
+<body class="port">
+    <section class="nav">
+        <ul>
+            <div class="dropdown">
+                <label class="dropbtn" onclick="myFunction()"><img class="drop" alt="dropdown_icon" src="img/down.png">
+                </label>
+                <div id="myDropdown" class="dropdown-content">
+                    <li id="test" class="project">
+                        <a class="projects" href="project.html">Projects</a>
+                    </li>
+                    <li  id="test" class="review">
+                        <a class="reviews" href="review.html">Reviews</a>
+                    </li>
+                    <li  id="test" class="about">
+                        <a class="about_me" href="#about" onclick="showabout()">About</a>
+                    </li>
+                </div>
+            </div>
+            <li  class="signin">
+                <a class="sign_up" href="register.html">Sign Up</a>
+            </li>
+        </ul>
+    </section>
+    <section class="intr">
+        <div class="intro">
+            <div class="im">I'm</div> 
+            <div class="rvl"> 
+                <span>  Vakho Iosava</span>
+            </div>
+            <div class="btmrvl">
+                <span>  I am Front-End Developer </span>
+            </div>
+        </div>
+        <div class="icons">
+            <label><a href="https://www.facebook.com/vaxo.iosava.7" target="_blank">
+                <img src="img/fboriginal.png" alt="fb_logo"></a>
+            </label>
+            <label><a href="https://twitter.com/IosavaVaxo" target="_blank">
+                <img src="img/twitter.png" alt="twitter_logo"></a>
+            </label>
+            <label><a href="https://myaccount.google.com/" target="_blank">
+                <img src="img/google.png" alt="google+_logo"></a>
+            </label>
+            <label><a href="https://github.com/VakhoIosava" target="_blank">
+                <img class="git" src="img/github.png" alt="github_logo"></a>
+            </label>
+            <label><a href="https://www.linkedin.com/in/vakhtangi-iosava-2178301aa/" target="_blank">
+                <img src="img/linkedin.png" alt="linkedin_logo"></a>
+            </label>
+        </div>
+    </section>
+    <div class="create">
+        <a class="work" href="project.html">See My Projects</a>
+        <div class="upwork">
+            <img src="img/upwork.png" class="upwlogo" alt="logo-upwork">
+            <a class="createbtn" href="https://www.upwork.com/freelancers/~018a52cfd652bb22dc" target="_blank">Hire me on 
+                <img src="img/upwork-logo.png" class="upwtext" alt="hire_on_upwork"></a>
+        </div>
+    </div>
+    <section id="about" class="showabout">
+        <label class="down" onclick="showabout()"><img src="img/down.png" alt="downicon"></label>
+        <h4 class="aboutme">About Me</h4>
+        <p class="aboutp">I am Vakho Iosava. I am From Georgia and study front-end development. <br> Skills:</p>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Javascript</li>
+        </ul>
+    </section>
+    <script>
+        function showabout(){
+            let el = document.getElementById("about")
+            el.classList.toggle("showabout")
+            el.classList.add("shownabout")
+        }
+    </script>
+    <script>
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        </script>
+</body>
+</html>

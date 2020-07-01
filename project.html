@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>Projects - Vakho Iosava</title>
+</head>
+<body>
+    <div class="mode">
+        <label class="tohome">
+            <a href="portfolio.html"><img class="backicon" src="img/back.png" alt="back_icon"></a>
+        </label>
+        <label id="night1" class="daybtn" onclick="daymode()">
+            <img style="width: 50px; cursor: pointer; border-radius: 12px; background-color: white;" src="img/day.png" alt="daymode_icon"></label>
+        <label id="night1" class="nightbtn" onclick="nightmode()">
+            <img style="width: 50px; border-radius: 12px;" src="img/night1.png" alt="nightmode_icon"></label>
+    </div>
+    <main id="main">
+        <div class="slideshow" id="img-div">
+            <div class="mySlides fade">
+                <img id="image" class="images" src="img/project.png">
+                <p id="image-caption" class="caption">Vakho Iosava - Portfolio</p>
+            </div>
+            <div class="mySlides fade">
+                <img id="image2" class="images" src="img/project1.png">
+                <p id="image-caption2" class="caption">National RoundUp Cancer Claims</p>
+            </div>
+            <div class="mySlides fade">
+                <img id="image3" class="images" src="img/project2.png">
+                <p id="image-caption3" class="caption">Animations</p>
+            </div>
+            <div class="mySlides fade">
+                <img id="image3" class="images" src="img/project3.png">
+                <p id="image-caption5" class="caption">Tribute Page - Van Gogh</p>
+            </div>
+            <div class="mySlides fade">
+                <img id="image3" class="images" src="img/project4.png">
+                <p id="image-caption4" class="caption">Slideshow</p>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <section class="sect">
+            <section class="main1">
+                <div class="first1">
+                    <img class="images1" src="img/project.png">
+                    <p id="image-caption" class="caption1">Vakho Iosava - Portfolio</p>
+                </div>
+                <div class="two">
+                    <img class="images1" src="img/project1.png">
+                    <p id="image-caption2" class="caption1">National RoundUp Cancer Claims</p>
+                </div>
+                <div class="three">
+                    <img class="images1" src="img/project2.png">
+                    <p id="image-caption3" class="caption1">Animations</p>
+                </div>
+                <div class="four">
+                    <img class="images1" src="img/project3.png">
+                    <p id="image-caption5" class="caption1">Tribute Page - Van Gogh</p>
+                </div>
+                <div class="five">
+                    <img class="images1" src="img/project4.png">
+                    <p id="image-caption4" class="caption1">Slideshow</p>
+                </div>
+            </section>
+        </section>
+        <script>
+            let slideIndex = 0
+            showSlides()
+            function showSlides() {
+              let i;
+              let slides = document.getElementsByClassName("mySlides");
+              let dots = document.getElementsByClassName("dot")   
+              for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";  
+              }
+              slideIndex++;
+              if (slideIndex > slides.length) {slideIndex = 1} 
+              for (i=0; i< dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "")
+              }
+              slides[slideIndex-1].style.display = "block"; 
+              dots[slideIndex-1].className += " active"; 
+              setTimeout(showSlides, 4000);
+            }
+        </script>
+        <script>
+            function nightmode(){
+                let element = document.body;
+                let el = document.getElementById("night1")
+                element.classList.add("dark1")
+            }
+            function daymode(){
+                let element = document.body;
+                let el = document.getElementById("night1")
+                element.classList.remove("dark1")
+            }
+        </script>
+</body>
+</html>

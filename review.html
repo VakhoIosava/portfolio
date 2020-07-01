@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>Review - Vakho Iosava</title>
+</head>
+<body>
+    <div class="mode">
+        <label class="tohome">
+            <a href="portfolio.html"><img class="backicon" src="img/back.png" alt="back_icon"></a>
+        </label>
+        <label id="night1" class="daybtn" onclick="daymode()">
+            <img style="width: 50px; border-radius: 12px; background-color: white;" src="img/day.png" alt="daymode_icon"></label>
+        <label id="night1" class="nightbtn" onclick="nightmode()">
+            <img style="width: 50px; border-radius: 12px;" src="img/night1.png" alt="nightmode_icon"></label>
+    </div>
+    <div class="rew">
+        <h3>Last Clients</h3>
+    </div>
+    
+    <div id="api">
+    </div>
+
+    <label class="left" id="prev"><img src="img/left.png" alt="left_icon"></label>
+    <label class="right" id="next"><img src="img/right.png" alt="right_icon"></label>
+    <script>
+        let currentpage = 1;
+        let TotalPages;
+        function getusers(page){
+                fetch('https://reqres.in/api/users?page=' +page, {
+                method: 'GET'
+            })
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(responseData){
+                console.log(responseData);
+
+                var fragment = document.createDocumentFragment();
+
+                responseData.data.forEach(item => {
+                    let div =document.createElement("div");
+                    let p = document.createElement("p")
+                    let p1 = document.createElement("p")
+                    p.textContent = item.first_name + ' ' + item.last_name;
+                    p1.textContent = item.email;
+
+                    let img = document.createElement("img")
+                    img.src = item.avatar;
+                    img.id = "face1";
+                    p.className = "name"
+                    p1.className = "email"
+                    div.className = "imgdata"
+                    
+                    div.appendChild(img)
+                    div.appendChild(p)
+                    div.appendChild(p1)
+                    fragment.appendChild(div);
+                });
+                document.getElementById('api').innerHTML = ' ';
+                document.getElementById("api").appendChild(fragment);
+                TotalPages = responseData.total_pages;
+            })
+            .catch(function(error){
+                console.log(error);
+            });
+        }
+        document.getElementById("prev").addEventListener("click", function(){
+            if (currentpage ===1){
+                return
+            }
+            currentpage -=1;
+            getusers(currentpage)
+        })
+        
+        document.getElementById("next").addEventListener("click", function(){
+            if (currentpage ===TotalPages){
+                return
+            }
+            currentpage +=1;
+            getusers(currentpage)
+        })
+        getusers(currentpage)
+
+    </script>
+        <script>
+            function nightmode(){
+                let element = document.body;
+                let el = document.getElementById("night1")
+                element.classList.add("dark1")
+            }
+            function daymode(){
+                let element = document.body;
+                let el = document.getElementById("night1")
+                element.classList.remove("dark1")
+            }
+        </script>
+</body>
+</html>
